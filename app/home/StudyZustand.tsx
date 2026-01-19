@@ -11,14 +11,15 @@ type Actions = {
 
 const useCountStore = create<CountState & Actions>((set) => ({
   count: 0,
-  updateCount: (countCallback) =>
-    set((state) => ({ count: countCallback(state.count) })),
+  updateCount: (countCallback) => {
+    set((state) => ({ count: countCallback(state.count) }));
+  },
 }));
 
 type State = {
   obj: { count: number };
 };
-const store = create<State>(() => ({ obj: { count: 0 } }));
+const store = create<State>((set) => ({ obj: { count: 0 } }));
 
 export default function MyZustand() {
   const obj = store((state) => state.obj);
