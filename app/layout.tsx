@@ -1,7 +1,7 @@
 "use client";
 
-import "@/app/ui/global.css";
-import { inter } from "@/app/ui/fonts";
+import "@/ui/global.css";
+import { inter } from "@/ui/fonts";
 /**
  * This is called a root layout and is required in every Next.js application
  * @param param0

@@ -3,7 +3,7 @@
  * Since <SideNav> is static, it's shown immediately. The user can interact with <SideNav> while the dynamic content is loading.
  * @returns
  */
-import DashboardSkeleton from "@/app/ui/skeletons";
+import DashboardSkeleton from "@/ui/skeletons";
 
 export default function Loading() {
   return <DashboardSkeleton />;

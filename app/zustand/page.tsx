@@ -1,11 +1,20 @@
+"use client";
+
 import { create } from "zustand";
+
+/**
+ * zustand解决如下问题
+ * 1 zombie child problem,
+ * 2 react concurrency,
+ * 3 context loss between mixed renderers
+ */
 
 type CountState = {
   count: number;
 };
 type Actions = {
   updateCount: (
-    countCallback: (count: CountState["count"]) => CountState["count"]
+    countCallback: (count: CountState["count"]) => CountState["count"],
   ) => void;
 };
 

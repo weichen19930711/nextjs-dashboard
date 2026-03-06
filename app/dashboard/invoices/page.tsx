@@ -2,14 +2,14 @@
 //  * 1 Learn how to use the Next.js APIs: useSearchParams, usePathname, and useRouter.
 //  * 2 Implement search and pagination using URL search params.
 //  */
-// import Pagination from "@/app/ui/invoices/pagination";
-// import Search from "@/app/ui/search";
-// import Table from "@/app/ui/invoices/table";
-// import { CreateInvoice } from "@/app/ui/invoices/buttons";
-// import { lusitana } from "@/app/ui/fonts";
-// import { InvoicesTableSkeleton } from "@/app/ui/skeletons";
+// import Pagination from "@/ui/invoices/pagination";
+// import Search from "@/ui/search";
+// import Table from "@/ui/invoices/table";
+// import { CreateInvoice } from "@/ui/invoices/buttons";
+// import { lusitana } from "@/ui/fonts";
+// import { InvoicesTableSkeleton } from "@/ui/skeletons";
 // import { Suspense } from "react";
-// import { fetchInvoicesPages } from "@/app/lib/data";
+// import { fetchInvoicesPages } from "@/lib/data";
 
 // export default async function Page(props: {
 //   searchParams?: Promise<{
@@ -44,6 +44,10 @@
 //     </div>
 //   );
 // }
-export default function Page() {
+// "use cache";
+
+export default async function Page() {
+  console.log(1);
+
   return <p>invoices Page</p>;
 }

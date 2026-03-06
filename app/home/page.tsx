@@ -1,9 +1,11 @@
 "use client";
 
 import DragElement from "./drag-element";
-// import * as Slot from '@radix-ui/react-slot';
+import * as Slot from "@radix-ui/react-slot";
 import * as React from "react";
 // import { Tooltip } from './tooltips';
+import WebsocketComp from "./websocket";
+import WebsocketComp2 from "./websocket2";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -20,38 +22,39 @@ export interface HTMLProps extends React.HTMLAttributes<HTMLElement> {
   rightElement?: React.ReactNode;
 }
 
-// const SlotTest = React.forwardRef<HTMLButtonElement, HTMLProps>(
-//   ({ asChild, children, leftElement, rightElement, ...props }, ref) => {
-//     const Comp = asChild ? Slot.Root : 'button';
-//     return (
-//       <Comp ref={ref} {...props}>
-//         <div>{leftElement}</div>
-//         {/* {children} */}
-//         <Slot.Slottable>{children}</Slot.Slottable>
-//         <div>{rightElement}</div>
-//       </Comp>
-//     );
-//   },
-// );
-// const Home: React.FC<{}> = () => {
-//   const leftElement = <div>left</div>;
-//   const rightElement = <div>right</div>;
-//   return (
-//     <>
-//       <SlotTest
-//         asChild
-//         leftElement={leftElement}
-//         rightElement={rightElement}
-//         style={{ color: 'red' }}
-//       >
-//         <a href="#aa">ccc</a>
-//       </SlotTest>
-//       {/* <DragElement>
-//         <div>aaaa</div>
-//       </DragElement> */}
-//     </>
-//   );
-// };
+const SlotTest = React.forwardRef<HTMLButtonElement, HTMLProps>(
+  ({ asChild, children, leftElement, rightElement, ...props }, ref) => {
+    const Comp = asChild ? Slot.Root : "button";
+    return (
+      <Comp ref={ref} {...props}>
+        <div>{leftElement}</div>
+        {/* {children} */}
+        <Slot.Slottable>{children}</Slot.Slottable>
+        <div>{rightElement}</div>
+      </Comp>
+    );
+  }
+);
+const Home: React.FC<{}> = () => {
+  const leftElement = <div>left</div>;
+  const rightElement = <div>right</div>;
+  return (
+    <>
+      <SlotTest
+        asChild
+        leftElement={leftElement}
+        rightElement={rightElement}
+        style={{ color: "red" }}
+        className="test"
+      >
+        <a href="#aa">ccc</a>
+      </SlotTest>
+      {/* <DragElement>
+        <div>aaaa</div>
+      </DragElement> */}
+    </>
+  );
+};
 
 const HomeDraggable: React.FC<{}> = () => {
   return <DragElement />;
@@ -80,6 +83,12 @@ class MyComponent extends React.Component<Props, {}> {
 }
 
 function MyComponentParent() {
-  return <MyComponent foo="bar" />;
+  return (
+    <>
+      <MyComponent foo="bar" />
+      <WebsocketComp />
+      <WebsocketComp />
+    </>
+  );
 }
-export default MyComponentParent;
+export default Home;
